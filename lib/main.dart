@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'animation_widget/animation_1.dart';
+import 'animation_widget/slide_animation.dart';
 //navigation created
 void main() => runApp(const MyApp());
 
@@ -40,7 +41,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData.dark(),
-        title: 'Animation Demo',
+        title: 'Animation App',
         themeMode: ThemeMode.dark,
         home: Scaffold(
           body: Column(
@@ -51,9 +52,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               //       selected = !selected;
               //     });
               //   },
-              Container(
+              Container (
                 width: 100,
-                height: 100,
+                height: 200,
                 child: AnimatedAlign(
                   // #1 Animation Align
                   alignment:
@@ -74,8 +75,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ),
               Myanimation(),
+              SlideAnimation(),
             ],
-          ),
-        ));
+          ),  
+        )
+        );
   }
 }

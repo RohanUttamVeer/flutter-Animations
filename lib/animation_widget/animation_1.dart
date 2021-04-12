@@ -35,7 +35,7 @@ class _Myanimation extends State<Myanimation>
           animation: animation,
           child: Container(
             color: Colors.red, 
-            width: 60, height: 100),
+            width: 80, height: 80),
           builder: (context, child) => Transform.rotate(
             angle: animation.value,
             child: child,
