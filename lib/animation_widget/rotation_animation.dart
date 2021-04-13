@@ -8,7 +8,7 @@ class Myanimation extends StatefulWidget {
 
 class _Myanimation extends State<Myanimation>
     with SingleTickerProviderStateMixin {
-  Animation controller;
+   AnimationController controller;
   Animation<double> animation;
 
   @override
@@ -25,7 +25,8 @@ class _Myanimation extends State<Myanimation>
 
   @override
   void dispose() {
-    // controller.dispose();
+    controller.dispose();
+
     super.dispose();
   }
 
@@ -33,9 +34,7 @@ class _Myanimation extends State<Myanimation>
   Widget build(BuildContext context) => Center(
         child: AnimatedBuilder(
           animation: animation,
-          child: Container(
-            color: Colors.red, 
-            width: 80, height: 80),
+          child: Container(color: Colors.red, width: 80, height: 80),
           builder: (context, child) => Transform.rotate(
             angle: animation.value,
             child: child,

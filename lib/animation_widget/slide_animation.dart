@@ -62,6 +62,7 @@ class _SlideAnimation extends State<SlideAnimation>
           animation: animation,
           child: Container(color: Colors.yellow, width: 80, height: 80),
           builder: (context, child) {
+            
             final width = MediaQuery.of(context).size.width;
             final x = animation.value * width;
 

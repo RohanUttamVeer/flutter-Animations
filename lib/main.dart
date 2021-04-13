@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'animation_widget/animation_1.dart';
+import 'animation_widget/rotation_animation.dart';
 import 'animation_widget/slide_animation.dart';
+import 'animation_widget/transform_animation.dart';
+
 //navigation created
 void main() => runApp(const MyApp());
 
@@ -52,9 +54,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               //       selected = !selected;
               //     });
               //   },
-              Container (
-                width: 100,
-                height: 200,
+              Container(
+                width: 150,
+                height: 150,
                 child: AnimatedAlign(
                   // #1 Animation Align
                   alignment:
@@ -76,9 +78,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
               Myanimation(),
               SlideAnimation(),
+              transformAnimation(),
             ],
-          ),  
-        )
-        );
+          ),
+        ));
   }
 }
