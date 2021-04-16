@@ -16,7 +16,7 @@ class _transformAnimation extends State<transformAnimation>
     super.initState();
 
     controller = AnimationController(
-      duration: Duration(seconds: 8),
+      duration: Duration(seconds: 3),
       vsync: this,
     )..repeat();
 
@@ -26,7 +26,7 @@ class _transformAnimation extends State<transformAnimation>
     sizeAnimation = Tween<double>(begin: 20, end: 100).animate(curvedAnimation);
     radiusAnimation = BorderRadiusTween(
       begin: BorderRadius.circular(60),
-      end: BorderRadius.circular(0),
+      end: BorderRadius.circular(16),
     ).animate(curvedAnimation);
   }
 

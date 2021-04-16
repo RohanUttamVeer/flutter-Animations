@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: true,
       theme: ThemeData.dark(),
       title: _title,
       home: Scaffold(
@@ -42,6 +43,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(),
         title: 'Animation App',
         themeMode: ThemeMode.dark,
@@ -79,6 +81,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               Myanimation(),
               SlideAnimation(),
               transformAnimation(),
+
+              AnimatedContainer(
+                width: selected ? 100.0 : 50.0,
+                height: selected ? 50.0 : 100.0,
+                color: selected ? Colors.greenAccent : Colors.purpleAccent,
+                alignment: selected
+                    ? Alignment.center
+                    : AlignmentDirectional.topCenter,
+                duration: const Duration(seconds: 2),
+                curve: Curves.elasticInOut,
+                child: const FlutterLogo(size: 75),
+              ),
             ],
           ),
         ));
