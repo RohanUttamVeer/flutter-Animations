@@ -39,6 +39,7 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   var anime = Myanimation();
   bool selected = false;
+  bool selected1 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -82,17 +83,28 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               SlideAnimation(),
               transformAnimation(),
 
-              AnimatedContainer(
-                width: selected ? 100.0 : 50.0,
-                height: selected ? 50.0 : 100.0,
-                color: selected ? Colors.greenAccent : Colors.purpleAccent,
-                alignment: selected
-                    ? Alignment.center
-                    : AlignmentDirectional.topCenter,
-                duration: const Duration(seconds: 2),
-                curve: Curves.elasticInOut,
-                child: const FlutterLogo(size: 75),
-              ),
+
+              // un-comment the block below for individual animation
+              // also change selected to selected1 in animatedContainer
+              // GestureDetector(
+              //   onTap: () {
+              //     setState(() {
+              //       selected1 = !selected1;
+              //     });
+              //   },
+                // child:
+                 AnimatedContainer(
+                  width: selected ? 100.0 : 50.0,
+                  height: selected ? 50.0 : 100.0,
+                  color: selected ? Colors.greenAccent : Colors.purpleAccent,
+                  alignment: selected
+                      ? Alignment.center
+                      : AlignmentDirectional.topCenter,
+                  duration: const Duration(seconds: 2),
+                  curve: Curves.elasticInOut,
+                  child: const FlutterLogo(size: 75),
+                ),
+              // ),
             ],
           ),
         ));
