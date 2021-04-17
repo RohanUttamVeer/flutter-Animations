@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
       title: _title,
       home: Scaffold(
-        appBar: AppBar(title: const Text(_title)),
+        // appBar: AppBar(title: const Text(_title)),
         // body: const MyStatefulWidget(),
         body: const MyStatefulWidget(),
       ),
@@ -43,70 +43,74 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData.dark(),
-        title: 'Animation App',
-        themeMode: ThemeMode.dark,
-        home: Scaffold(
+    return SafeArea(
+        child: MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.light(),
+      title: 'Animation App',
+      home: Scaffold(
           body: Column(
-            children: [
-              // GestureDetector(
-              //   onTap: () {
-              //     setState(() {
-              //       selected = !selected;
-              //     });
-              //   },
-              Container(
-                width: 150,
-                height: 150,
-                child: AnimatedAlign(
-                  // #1 Animation Align
-                  alignment:
-                      selected ? Alignment.topLeft : Alignment.bottomRight,
-                  duration: const Duration(seconds: 1),
-                  curve: Curves.easeOutCubic,
-                  // heightFactor: 5.0,
-                  // widthFactor: 5.0,
-                  // ignore: deprecated_member_use
-                  child: ElevatedButton(
-                      child: Text("rohan bro"),
-                      onPressed: () {
-                        setState(() {
-                          selected = !selected;
-                        });
-                        // ),
-                      }),
+        children: [
+          Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Wrap(direction: Axis.horizontal, children: [
+                // GestureDetector(
+                //   onTap: () {
+                //     setState(() {
+                //       selected = !selected;
+                //     });
+                //   },
+                Container(
+                  width: 150,
+                  height: 150,
+                  child: AnimatedAlign(
+                    // #1 Animation Align
+                    alignment:
+                        selected ? Alignment.topLeft : Alignment.bottomRight,
+                    duration: const Duration(seconds: 1),
+                    curve: Curves.easeOutCubic,
+                    // heightFactor: 5.0,
+                    // widthFactor: 5.0,
+                    // ignore: deprecated_member_use
+                    child: ElevatedButton(
+                        child: Text("rohan bro"),
+                        onPressed: () {
+                          setState(() {
+                            selected = !selected;
+                          });
+                          // ),
+                        }),
+                  ),
                 ),
-              ),
-              Myanimation(),
-              SlideAnimation(),
-              transformAnimation(),
+                Myanimation(),
+                SlideAnimation(),
+                transformAnimation(),
 
-
-              // un-comment the block below for individual animation
-              // also change selected to selected1 in animatedContainer
-              // GestureDetector(
-              //   onTap: () {
-              //     setState(() {
-              //       selected1 = !selected1;
-              //     });
-              //   },
+                // un-comment the block below for individual animation
+                // also change selected to selected1 in animatedContainer
+                // GestureDetector(
+                //   onTap: () {
+                //     setState(() {
+                //       selected1 = !selected1;
+                //     });
+                //   },
                 // child:
-                 AnimatedContainer(
-                  width: selected ? 100.0 : 50.0,
-                  height: selected ? 50.0 : 100.0,
-                  color: selected ? Colors.greenAccent : Colors.purpleAccent,
+
+                AnimatedContainer(
+                  width: selected ? 160.0 : 80.0,
+                  height: selected ? 80.0 : 160.0,
+                  color: selected ? Color(0xFFB3E5FC) : Color(0xFFA5D6A7),
                   alignment: selected
                       ? Alignment.center
                       : AlignmentDirectional.topCenter,
                   duration: const Duration(seconds: 2),
                   curve: Curves.elasticInOut,
-                  child: const FlutterLogo(size: 75),
+                  child: const FlutterLogo(size: 70),
                 ),
-              // ),
-            ],
-          ),
-        ));
+                // ),
+              ])),
+        ],
+      )),
+    ));
   }
 }
